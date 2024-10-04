@@ -8,7 +8,7 @@ Esta documentação detalha como configurar e executar uma aplicação NestJS de
 2. [Estrutura do Dockerfile](#estrutura-do-dockerfile)
 3. [Configuração do .dockerignore](#configuracao-do-dockerignore)
 4. [Clonando a Aplicação com NestJS CLI](#clone-app)
-5. [Construção e Execução da Imagem com Network e Volumes](#images-volumes)
+5. [Construção e Execução da Imagem com Network e Volumes](#imagens-e-volumes)
 6. [Comandos Úteis para Administração e Monitoramento](#commands)
 
 ## Requisitos
@@ -85,7 +85,7 @@ yarn start
 ```
 
 ## Construção e Execução da Imagem com Network e Volumes
-1. Criação da Imagem
+1. Imagens e Volumes
 No diretório onde está o Dockerfile, construa a imagem:
 
 ```bash

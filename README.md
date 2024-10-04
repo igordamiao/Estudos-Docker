@@ -7,7 +7,7 @@ Esta documentação detalha como configurar e executar uma aplicação NestJS de
 1. [Requisitos](#requisitos)
 2. [Estrutura do Dockerfile](#estrutura-do-dockerfile)
 3. [Configuração do .dockerignore](#configuracao-do-dockerignore)
-4 .[Clonando a Aplicação com NestJS CLI](#clone-AppJS)
+4. [Clonando a Aplicação com NestJS CLI](#clonando-a-aplicacao-com-nestjs-cli)
 5. [Construção e Execução da Imagem com Network e Volumes](#images-volumes)
 6. [Comandos Úteis para Administração e Monitoramento](#commands)
 
@@ -84,79 +84,80 @@ yarn install
 yarn start
 ```
 
-Construção e Execução da Imagem com Network e Volumes
+## Construção e Execução da Imagem com Network e Volumes
 1. Criação da Imagem
 No diretório onde está o Dockerfile, construa a imagem:
 
-bash
-Copiar código
+```bash
 docker build -t <nome-da-imagem> .
+```
 2. Configuração de Rede
 Para criar uma rede personalizada, execute:
 
-bash
-Copiar código
+```bash
 docker network create minha_rede
+```
 3. Configuração de Volumes
 Para persistência de dados, crie um volume:
 
-bash
-Copiar código
+``` bash
 docker volume create meu_volume
+```
 4. Execução do Container
 Execute o container mapeando a rede e o volume criados:
 
-bash
-Copiar código
+```bash
+
 docker run -d \
    --name meu_container \
    --network minha_rede \
    -v meu_volume:/usr/src/app/data \
    -p 3000:3000 \
    <nome-da-imagem>
+```
 Comandos Úteis para Administração e Monitoramento
 Gerenciamento de Containers
 Parar um Container:
 
-bash
-Copiar código
+``` bash
 docker stop <id-ou-nome-do-container>
+```
 Iniciar um Container Parado:
 
-bash
-Copiar código
+```bash
 docker start <id-ou-nome-do-container>
+```
 Reiniciar um Container:
 
-bash
-Copiar código
+```bash
 docker restart <id-ou-nome-do-container>
+```
 Remover um Container:
 
-bash
-Copiar código
+``` bash
 docker rm <id-ou-nome-do-container>
+```
 Remover Todos os Containers Parados:
 
-bash
-Copiar código
+``` bash
 docker container prune
-Gerenciamento de Imagens
+```
+## Gerenciamento de Imagens
 Listar Todas as Imagens:
 
-bash
-Copiar código
+``` bash
 docker images -a
+```
 Remover uma Imagem:
 
-bash
-Copiar código
+``` bash
 docker rmi <id-ou-nome-da-imagem>
+```
 Remover Todas as Imagens Não Utilizadas:
 
-bash
-Copiar código
+```bash
 docker image prune -a
+```
 Monitoramento de Containers
 Verificar Logs de um Container:
 
@@ -213,22 +214,22 @@ Copiar código
 docker network disconnect <nome-da-rede> <id-ou-nome-do-container>
 Comandos Avançados
 Executar um Comando em um Container Ativo:
-
-bash
-Copiar código
+```bash
 docker exec -it <id-ou-nome-do-container> /bin/bash
-Exportar o Sistema de Arquivos de um Container:
+```
 
-bash
-Copiar código
+Exportar o Sistema de Arquivos de um Container:
+``` bash
 docker export -o <arquivo.tar> <id-ou-nome-do-container>
+```
 Importar um Sistema de Arquivos:
 
-bash
-Copiar código
+```bash
 docker import <arquivo.tar> <nome-da-nova-imagem>
-Limpeza Geral
+```
+
 Remover Todos os Containers, Imagens, Redes e Volumes Não Utilizados:
-bash
-Copiar código
+
+```bash
 docker system prune -a --volumes
+```

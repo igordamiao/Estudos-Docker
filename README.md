@@ -160,7 +160,7 @@ Remover Todas as Imagens Não Utilizadas:
 docker image prune -a
 ```
 
-** Monitoramento de Containers** 
+**Monitoramento de Containers** 
 
 Verificar Logs de um Container:
 ```  bash

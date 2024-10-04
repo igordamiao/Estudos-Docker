@@ -11,7 +11,7 @@ Esta documentação detalha como configurar e executar uma aplicação NestJS de
 5. [Construção e Execução da Imagem com Network e Volumes](#images-volumes)
 6. [Comandos Úteis para Administração e Monitoramento](#commands)
 
-*Requisitos*
+## Requisitos
 * Docker instalado
 * Código da aplicação NestJS com arquivos package.json, yarn.lock e .dockerignore configurado
 * Aplicação baseada em um clone da versão mais recente do NestJS CLI

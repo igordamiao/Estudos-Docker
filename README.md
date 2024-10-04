@@ -84,9 +84,9 @@ yarn install
 yarn start
 ```
 
-## Construção e Execução da Imagem com Network e Volumes
-1. Imagens e Volumes
-No diretório onde está o Dockerfile, construa a imagem:
+## Imagens e Volumes
+1. Criação da Imagem
+> No diretório onde está o Dockerfile, construa a imagem:
 
 ```bash
 docker build -t <nome-da-imagem> .

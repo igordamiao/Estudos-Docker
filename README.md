@@ -9,7 +9,7 @@ Esta documentação detalha como configurar e executar uma aplicação NestJS de
 3. [Configuração do .dockerignore](#configuracao-do-dockerignore)
 4. [Clonando a Aplicação com NestJS CLI](#clone-app)
 5. [Construção e Execução da Imagem com Network e Volumes](#imagens-e-volumes)
-6. [Comandos Úteis para Administração e Monitoramento](#commands)
+6. [Comandos Úteis para Administração e Monitoramento](#comandos)
 
 ## Requisitos
 * Docker instalado
@@ -115,104 +115,110 @@ docker run -d \
    -p 3000:3000 \
    <nome-da-imagem>
 ```
-Comandos Úteis para Administração e Monitoramento
-Gerenciamento de Containers
-Parar um Container:
+## Comandos
+> Gerenciamento de Containers
 
+Parar um Container:
 ``` bash
 docker stop <id-ou-nome-do-container>
 ```
-Iniciar um Container Parado:
 
+Iniciar um Container Parado:
 ```bash
 docker start <id-ou-nome-do-container>
 ```
-Reiniciar um Container:
 
+Reiniciar um Container:
 ```bash
 docker restart <id-ou-nome-do-container>
 ```
-Remover um Container:
 
+Remover um Container:
 ``` bash
 docker rm <id-ou-nome-do-container>
 ```
-Remover Todos os Containers Parados:
 
+Remover Todos os Containers Parados:
 ``` bash
 docker container prune
 ```
-## Gerenciamento de Imagens
-Listar Todas as Imagens:
 
+**Gerenciamento de Imagens**
+
+Listar Todas as Imagens:
 ``` bash
 docker images -a
 ```
-Remover uma Imagem:
 
+Remover uma Imagem:
 ``` bash
 docker rmi <id-ou-nome-da-imagem>
 ```
-Remover Todas as Imagens Não Utilizadas:
 
+Remover Todas as Imagens Não Utilizadas:
 ```bash
 docker image prune -a
 ```
-Monitoramento de Containers
+
+** Monitoramento de Containers** 
+
 Verificar Logs de um Container:
-
-bash
-Copiar código
+```  bash
 docker logs <id-ou-nome-do-container>
+```
+
 Monitorar Logs em Tempo Real:
-
-bash
-Copiar código
+``` bash
 docker logs -f <id-ou-nome-do-container>
+``` 
+
 Verificar Uso de Recursos:
-
-bash
-Copiar código
+``` bash
 docker stats
-Inspeção e Diagnóstico
+``` 
+**Inspeção e Diagnóstico**
+
 Inspecionar Detalhes de um Container:
-
-bash
-Copiar código
+``` bash
 docker inspect <id-ou-nome-do-container>
+```
+
 Inspecionar uma Network:
-
-bash
-Copiar código
+```  bash
 docker network inspect <nome-da-rede>
-Gerenciamento de Volumes
+```
+
+**Gerenciamento de Volumes**
+
 Criar um Novo Volume:
-
-bash
-Copiar código
+``` bash
 docker volume create <nome-do-volume>
+``` 
+
 Remover Todos os Volumes Não Utilizados:
-
-bash
-Copiar código
+``` bash
 docker volume prune
+```
+
 Inspecionar um Volume:
-
-bash
-Copiar código
+``` bash
 docker volume inspect <nome-do-volume>
-Networking
+```
+
+**Networking**
+
 Conectar um Container a uma Rede:
-
-bash
-Copiar código
+ ``` bash
 docker network connect <nome-da-rede> <id-ou-nome-do-container>
-Desconectar um Container de uma Rede:
+```
 
-bash
-Copiar código
+Desconectar um Container de uma Rede:
+``` bash
 docker network disconnect <nome-da-rede> <id-ou-nome-do-container>
-Comandos Avançados
+```
+
+**Comandos Avançados**
+
 Executar um Comando em um Container Ativo:
 ```bash
 docker exec -it <id-ou-nome-do-container> /bin/bash
@@ -229,7 +235,6 @@ docker import <arquivo.tar> <nome-da-nova-imagem>
 ```
 
 Remover Todos os Containers, Imagens, Redes e Volumes Não Utilizados:
-
 ```bash
 docker system prune -a --volumes
 ```

@@ -1,23 +1,21 @@
-# Imagem base
-FROM node:18-slim
+FROM node:18 AS build
 
-# Diretório de trabalho
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Copia os arquivos de dependências
 COPY package*.json ./
 
-# Instala as dependências
-RUN yarn
+RUN npm install
 
-# Copia o restante do código da aplicação
 COPY . .
 
-# Compila a aplicação
-RUN yarn run build
+RUN npm run build
 
-# Expõe a porta 3000
+FROM node:18-alpine3.19 AS runtime
+
+WORKDIR /app
+
+COPY --from=build /app .
+
 EXPOSE 3000
 
-# Comando de inicialização
-CMD ["yarn", "run", "start"]
+CMD ["npm", "start"]
